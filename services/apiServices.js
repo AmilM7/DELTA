@@ -12,11 +12,13 @@ const headers = () => {
     };
 };
 
-const apiUrl = "https://ap-iam-ssst.herokuapp.com/"
+const apiUrl = "https://ap-proj.herokuapp.com/"
+
 
 const list = async (dataSet) => {
     return await request("get", apiUrl + dataSet, {}, headers())
 }
+
 
 const read = async (dataSet, id) => {
     return await request("get", apiUrl + dataSet + "/" + id, {}, headers());
@@ -44,7 +46,6 @@ const request = async (method, url, data, headers) => {
         });
         return response.data;
     } catch (err) {
-        console.log(err);
         return false;
     }
 }
