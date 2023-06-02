@@ -1,33 +1,27 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
-import {white} from "react-native-paper/src/styles/themes/v2/colors";
+import {StyleSheet, Text, View} from 'react-native';
+import colors  from "../styles/colors";
+import {Button} from "react-native-paper";
 
 const Footer = () => {
 
     return (
-        <View style={styles.footer}>
-            <View>
-                <View  style={styles.iconsView}>
-                    <Image
-                        style={styles.icons}
-                        source={require('../assets/SocialMedia/icons8-facebook-50.png')}
-                    />
-                    <Image
-                        style={styles.icons}
-                        source={require('../assets/SocialMedia/icons8-instagram-48.png')}
-                    />
-                    <Image
-                        style={styles.icons}
-                        source={require('../assets/SocialMedia/icons8-twitter-48.png')}
-                    />
+        <>
+            <View style={styles.footer}>
+                <View style={styles.footerContent}>
+                    <View>
+                        <Text style={styles.footerLogo}>Trenutno.ba</Text>
+                    </View>
+                    <View style={styles.footerInfo}>
+                        <Text style={styles.footerText}>Contact: +38761023923</Text>
+                        <Text style={styles.footerText}>E-mail: info@trenutno.ba</Text>
+                    </View>
                 </View>
-                <Text style={styles.textFooter}>Number: 38761023923</Text>
-                <Text style={styles.textFooter}>E-mail: contact@trenutno.ba</Text>
-            </View>
-            <View>
-                <Text style={styles.footerText}>Trenutno.ba</Text>
+                <View style={styles.credit}>
+                    <Text style={styles.footerText}> All rights reserved &copy; Trenutno.ba 2023</Text>
+                </View>
             </View>
 
-        </View>
+        </>
     );
 }
 
@@ -35,34 +29,44 @@ export default Footer;
 
 const styles = StyleSheet.create({
     footer: {
-        height: 130,
         width: '100%',
-        backgroundColor:'#4848de',
+        paddingTop: 20,
+        paddingBottom: 20,
+        backgroundColor: colors.DarkBG,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+    },
+    footerContent: {
+        marginBottom: 10,
+        width: '100%',
         display: "flex",
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "space-evenly",
+        alignItems: "center"
     },
-    icons: {
-        padding: 2,
-        height: 30,
-        width: 30,
-    },
-    iconsView: {
-        marginTop: 15,
-        width: 100,
+    footerInfo: {
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: "column",
+        justifyContent: "space-between"
     },
-    textFooter: {
-        fontSize: 15,
-        color: white,
-        padding: 5,
+    footerLogo:{
+        fontSize: 25,
+        color: colors.Primary,
+        fontWeight: "bold"
     },
-    footerText:{
-        fontSize: 20,
-        color: white,
-        fontWeight: "bold",
-        margin:15,
+    footerText: {
+        fontSize: 12,
+        color: colors.Secondary,
+        paddingBottom: 10,
     },
+    credit: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: '90%',
+        borderTopColor: colors.Secondary,
+        borderTopWidth: 1
+    },
+
 });
