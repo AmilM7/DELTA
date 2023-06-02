@@ -1,11 +1,13 @@
-import { StyleSheet, View, Modal, ActivityIndicator } from 'react-native';
+import {StyleSheet, View, Modal, ActivityIndicator, Text} from 'react-native';
+import colors from "../styles/colors";
 
 const Spinner = () => {
 
     return (
         <Modal visible={true}>
-            <View style={styles.container}>
-                <ActivityIndicator color='red' size='large' />
+            <View style={styles.loading}>
+                <ActivityIndicator color={colors.Primary} size='large' />
+                <Text style={styles.loadingText}>Just a few seconds...</Text>
             </View>
         </Modal>
     );
@@ -14,9 +16,14 @@ const Spinner = () => {
 export default Spinner;
 
 const styles = StyleSheet.create({
-    container: {
+    loading: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    loadingText: {
+        fontSize: 15,
+        color: colors.Primary,
+        marginTop: 20
+    },
 });

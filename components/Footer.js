@@ -1,6 +1,5 @@
 import {StyleSheet, Text, View} from 'react-native';
 import colors  from "../styles/colors";
-import {Button} from "react-native-paper";
 
 const Footer = () => {
 
