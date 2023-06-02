@@ -14,19 +14,26 @@ const Drawer = createDrawerNavigator();
 export default function App() {
 
     const navigationRef = React.useRef(null);
-    const openNavigation = () => {
-        navigationRef.current?.dispatch(DrawerActions.openDrawer());
+    const toggleNavigation = () => {
+        navigationRef.current?.dispatch(DrawerActions.toggleDrawer());
     }
 
     return (
         <PaperProvider>
             <Appbar.Header style={styles.header} statusBarHeight={30} mode={'center-aligned'}>
-                <Appbar.Action icon="menu" onPress={openNavigation} color={colors.Primary} />
-                <Appbar.Content color={colors.LightText} title="Trenutno.ba"/>
+                <Appbar.Action icon="menu" onPress={toggleNavigation} color={colors.Secondary} />
+                <Appbar.Content color={colors.Secondary} title="Trenutno.ba"/>
             </Appbar.Header>
             <View style={styles.container}>
                 <NavigationContainer ref={navigationRef}>
-                    <Drawer.Navigator initialRouteName="home" screenOptions={{headerShown: false}}>
+                    <Drawer.Navigator initialRouteName="home" screenOptions={{
+                        headerShown: false,
+                        drawerStyle:styles.drawerStyle,
+                        drawerActiveBackgroundColor: colors.Primary,
+                        drawerActiveTintColor: colors.LightText,
+                        drawerInactiveTintColor: colors.Primary,
+                        drawerType: 'front',
+                    }}>
                         <Drawer.Screen name="Home" component={Dashboard}/>
                         <Drawer.Screen
                             name="Business"
@@ -85,11 +92,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     header: {
-        backgroundColor: colors.Secondary,
+        backgroundColor: colors.BG,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        borderBottomColor: colors.Primary,
-        borderBottomWidth: 3
+        borderBottomColor: colors.Secondary,
+        borderBottomWidth: 2
+    },
+    drawerStyle: {
+        backgroundColor: colors.LightText,
     },
 });
