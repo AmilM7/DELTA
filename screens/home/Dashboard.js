@@ -5,7 +5,6 @@ import {Spinner, Footer} from '../../components'
 import {Article, NewsHeading, NewsByCategory} from "./Index";
 import {useNavigation} from "@react-navigation/native";
 import colors from "../../styles/colors";
-import {white} from "react-native-paper/src/styles/themes/v2/colors";
 
 const Dashboard = () => {
     const [articles, setArticles] = useState([]);
@@ -52,7 +51,8 @@ const Dashboard = () => {
                         <View style={styles.trending}>
                             <Pressable android_ripple={{color: colors.LightBG, borderless: true}} onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
                                 <View style={styles.trendingContent}>
-                                    <Image style={styles.trendingImage} source={{uri: trendingArticle.picture}}></Image>
+                                    {/*<Image style={styles.trendingImage} source={{uri: trendingArticle.picture}}></Image>*/}
+                                    <Image style={styles.trendingImage} source={require('../../assets/Backgrounds/trending.jpg')} />
                                     <View style={styles.trendingInfo}>
                                         <Text style={styles.headingText}>{trendingArticle.heading}</Text>
                                         <Text style={styles.descriptionText}>{trendingArticle.description}</Text>
@@ -72,17 +72,16 @@ const Dashboard = () => {
                                      setArticleID={() => setArticleID(articles[articles.length - 2].id)}/>
                         <NewsHeading article={articles[articles.length - 3]} visibilityTrue={() => setVisible(true)}
                                      setArticleID={() => setArticleID(articles[articles.length - 3].id)}/>
-
                     </View>
                 </ImageBackground>
 
-                <NewsByCategory category={"Business"} navigation={navigation}/>
-                <NewsByCategory category={"Sport"} navigation={navigation}/>
-                <NewsByCategory category={"Education"} navigation={navigation}/>
-                <NewsByCategory category={"Travel"} navigation={navigation}/>
-                <NewsByCategory category={"Politics"} navigation={navigation}/>
-                <NewsByCategory category={"Health"} navigation={navigation}/>
-                <NewsByCategory category={"Entertainment"} navigation={navigation}/>
+                <NewsByCategory categoryIcon={"briefcase"} categoryColor={"#464646"} category={"Business"} navigation={navigation}/>
+                <NewsByCategory categoryIcon={"volleyball"} categoryColor={"#278c1c"} category={"Sport"} navigation={navigation}/>
+                <NewsByCategory categoryIcon={"school"} categoryColor={"#2972cb"} category={"Education"} navigation={navigation}/>
+                <NewsByCategory categoryIcon={"airplane"} categoryColor={"#e17727"} category={"Travel"} navigation={navigation}/>
+                <NewsByCategory categoryIcon={"tie"} categoryColor={"#39c9a5"} category={"Politics"} navigation={navigation}/>
+                <NewsByCategory categoryIcon={"hospital"} categoryColor={"#c03131"} category={"Health"} navigation={navigation}/>
+                <NewsByCategory categoryIcon={"popcorn"} categoryColor={"#c1d73f"} category={"Entertainment"} navigation={navigation}/>
                 <Footer/>
             </ScrollView>
             {visible && <Article visible={visible} articleID={articleID} onClose={() => setVisible(false)}/>}
@@ -133,6 +132,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: '100%',
         padding: 10,
+        paddingBottom: 80
     },
     latestText: {
         fontSize: 20,
@@ -154,19 +154,6 @@ const styles = StyleSheet.create({
         width: '100%',
         marginBottom: 10,
         borderWidth: 2,
-        borderColor: colors.Primary
-    },
-    newestNews: {
-        margin: 10,
-        padding: 5,
-        borderWidth: 1,
-    },
-    pressedItem: {
-        //#Irfan dodaj
-    },
-    categoryList: {
-        margin: 10,
-        padding: 5,
-        borderWidth: 1,
+        borderRadius: 5
     },
 });

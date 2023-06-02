@@ -13,9 +13,10 @@ const NewsHeading = ({article, visibilityTrue, setArticleID}) => {
     if (article == undefined) return <Spinner/>
     return (
         <View style={styles.latestNews}>
-            <Pressable android_ripple={{color: colors.LightBG, borderless: true}} onPress={onPress}>
+            <Pressable android_ripple={{color: colors.LightBG}} onPress={onPress}>
                 <View style={styles.latestNewsContent}>
-                    <Image style={styles.latestImage} source={{uri: article.picture}}></Image>
+                    {/*<Image style={styles.latestImage} source={{uri: article.picture}}></Image>*/}
+                    <Image style={styles.latestImage} source={require('../../assets/Backgrounds/latest.jpg')} />
                     <View style={styles.latestNewsInfo}>
                         <Text style={styles.headingText}>{article.heading}</Text>
                         <Text style={styles.descriptionText}>{article.description}</Text>
@@ -54,6 +55,6 @@ const styles = StyleSheet.create({
         width: '100%',
         marginBottom: 10,
         borderWidth: 2,
-        borderColor: colors.Primary
+        borderRadius: 5
     },
 });

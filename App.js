@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Dashboard from './screens/home/Dashboard'
 import Category from "./screens/category/Category";
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
