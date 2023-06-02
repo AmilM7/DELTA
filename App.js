@@ -5,6 +5,7 @@ import Category from "./screens/category/Category";
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { Appbar, DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import colors from "./styles/colors";
 
 const Drawer = createDrawerNavigator();
 
@@ -20,8 +21,8 @@ export default function App() {
     return (
         <PaperProvider>
             <Appbar.Header style={styles.header} statusBarHeight={30} mode={'center-aligned'}>
-                <Appbar.Action icon="menu" onPress={openNavigation} color="#FFFFFF" />
-                <Appbar.Content color="#FFFFFFFF" title="Trenutno.ba"/>
+                <Appbar.Action icon="menu" onPress={openNavigation} color={colors.Primary} />
+                <Appbar.Content color={colors.LightText} title="Trenutno.ba"/>
             </Appbar.Header>
             <View style={styles.container}>
                 <NavigationContainer ref={navigationRef}>
@@ -84,7 +85,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     header: {
-        backgroundColor: '#2121e7',
-        color: '#ffffff',
+        backgroundColor: colors.Secondary,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        borderBottomColor: colors.Primary,
+        borderBottomWidth: 3
     },
 });
