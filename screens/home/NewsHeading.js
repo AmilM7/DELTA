@@ -13,7 +13,7 @@ const NewsHeading = ({article, visibilityTrue, setArticleID}) => {
     if (article == undefined) return <Spinner/>
     return (
         <View style={styles.latestNews}>
-            <Pressable android_ripple={{color: colors.LightBG}} onPress={onPress}>
+            <Pressable android_ripple={{color: colors.BG}} onPress={onPress}>
                 <View style={styles.latestNewsContent}>
                     {/*<Image style={styles.latestImage} source={{uri: article.picture}}></Image>*/}
                     <Image style={styles.latestImage} source={require('../../assets/Backgrounds/latest.jpg')} />

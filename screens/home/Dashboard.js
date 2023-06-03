@@ -49,7 +49,7 @@ const Dashboard = () => {
                 <ImageBackground style={{padding: 10}} source={require('../../assets/Backgrounds/purple-texture.jpg')} resizeMode="cover">
                     {trendingArticle &&
                         <View style={styles.trending}>
-                            <Pressable android_ripple={{color: colors.LightBG, borderless: true}} onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
+                            <Pressable android_ripple={{color: colors.BG, borderless: true}} onPress={onPress} style={({pressed}) => pressed && styles.pressedItem}>
                                 <View style={styles.trendingContent}>
                                     {/*<Image style={styles.trendingImage} source={{uri: trendingArticle.picture}}></Image>*/}
                                     <Image style={styles.trendingImage} source={require('../../assets/Backgrounds/trending.jpg')} />
