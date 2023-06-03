@@ -25,17 +25,22 @@ const Category = ({route}) => {
         fetchArticles()
     }, []);
 
+    const footerComponent = () => (
+        <Footer/>
+    )
+
     if (loading) return <Spinner/>
     return (
-        <ImageBackground source={require('../../assets/Backgrounds/white-texture.jpg')} resizeMode="cover">
-            <View>
-                <Text style={styles.categoryHeading}>News</Text>
-                    <FlatList data={articles}
-                              renderItem={itemData => <Articles articleID={itemData.item.id}/>}
-                              style={styles.flatList}
-                    />
-            </View>
-        </ImageBackground>
+        <>
+            <ImageBackground source={require('../../assets/Backgrounds/white-texture.jpg')} resizeMode="cover">
+                    <Text style={styles.categoryHeading}>News</Text>
+                        <FlatList data={articles}
+                                  renderItem={itemData => <Articles articleID={itemData.item.id}/>}
+                                  style={styles.flatList}
+                                  ListFooterComponent={footerComponent}
+                        />
+            </ImageBackground>
+        </>
     );
 }
 export default Category;
@@ -50,6 +55,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.Primary,
     },
     flatList: {
-
+        height: '95%'
     },
 });
