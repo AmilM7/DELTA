@@ -34,7 +34,6 @@ const Category = ({route}) => {
                               renderItem={itemData => <Articles articleID={itemData.item.id}/>}
                               style={styles.flatList}
                     />
-                <Footer/>
             </View>
         </ImageBackground>
     );

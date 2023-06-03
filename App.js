@@ -6,6 +6,7 @@ import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import {Appbar, IconButton, Provider as PaperProvider} from 'react-native-paper';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import colors from "./styles/colors";
+import {Footer} from "./components";
 
 const Drawer = createDrawerNavigator();
 
@@ -117,6 +118,7 @@ export default function App() {
                     </Drawer.Navigator>
                 </NavigationContainer>
             </View>
+
         </PaperProvider>
 
     );
