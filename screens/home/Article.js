@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     },
     categoryText: {
         color: colors.SecondaryText,
-        fontSize: 12,
+        fontSize: 15,
         padding: 10
     },
     articleTitle: {
@@ -96,20 +96,20 @@ const styles = StyleSheet.create({
     },
     headingText: {
         color: colors.PrimaryText,
-        fontSize: 15,
+        fontSize: 17,
         fontWeight: "bold",
         marginBottom: 5
     },
     descriptionText: {
-        color: colors.SecondaryText,
-        fontSize: 12,
+        color: colors.PrimaryText,
+        fontSize: 15,
     },
     contentText:{
-        color: colors.PrimaryText,
+        color: colors.SecondaryText,
         fontSize: 15,
         padding: 10,
         textAlign: "justify",
-        lineHeight: 25
+        lineHeight: 22
     },
     articleImage: {
         width: '100%',

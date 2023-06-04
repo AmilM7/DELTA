@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     articleImage: {
         width: 100,
-        height: 100,
+        height: 130,
         borderRadius: 5,
         marginRight: 10
     },
