@@ -1,8 +1,9 @@
-import {StyleSheet, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList, Text, ImageBackground, ScrollView} from 'react-native';
 import {useEffect, useState} from 'react';
 import {list} from "../../services/apiServices";
 import {Spinner, Footer} from "../../components";
 import Articles from "./Articles";
+import colors from "../../styles/colors";
 
 
 const Category = ({route}) => {
@@ -30,20 +31,30 @@ const Category = ({route}) => {
 
     if (loading) return <Spinner/>
     return (
-        <View style={styles.container}>
-                <FlatList data={articles}
-                          renderItem={itemData => <Articles articleID={itemData.item.id}/>}
-                          style={styles.flatList}
-                          ListFooterComponent={footerComponent}
-                />
-        </View>
-
+        <>
+            <ImageBackground source={require('../../assets/Backgrounds/white-texture.jpg')} resizeMode="cover">
+                    <Text style={styles.categoryHeading}>News</Text>
+                        <FlatList data={articles}
+                                  renderItem={itemData => <Articles articleID={itemData.item.id}/>}
+                                  style={styles.flatList}
+                                  ListFooterComponent={footerComponent}
+                        />
+            </ImageBackground>
+        </>
     );
 }
 export default Category;
 
 const styles = StyleSheet.create({
-    container: {
-
-    }
+    categoryHeading: {
+        fontSize: 20,
+        fontWeight: "bold",
+        textAlign: "center",
+        padding: 10,
+        color: colors.LightText,
+        backgroundColor: colors.Primary,
+    },
+    flatList: {
+        height: '95%'
+    },
 });

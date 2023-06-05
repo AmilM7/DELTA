@@ -1,8 +1,9 @@
 import {list} from "../../services/apiServices";
-import {StyleSheet, Text, View, Modal,ScrollView, BackHandler} from "react-native";
+import {StyleSheet, Text, View, Modal, ScrollView, BackHandler, Image, ImageBackground} from "react-native";
 import {Appbar} from "react-native-paper";
 import {useEffect, useState} from "react";
 import {Spinner, Footer} from '../../components'
+import colors from "../../styles/colors";
 
 const Article = ({articleID, onClose}) => {
     const [article, setArticle] = useState({id: articleID});
@@ -45,16 +46,22 @@ const Article = ({articleID, onClose}) => {
         <Modal>
             <ScrollView>
             <Appbar.Header style={styles.header} statusBarHeight={10} mode={'center-aligned'}>
-                <Appbar.BackAction color="#FFFFFFFF" onPress={closeModal}/>
-                <Appbar.Content color="#FFFFFFFF" title="Trenutno.ba"/>
+                <Appbar.BackAction color={colors.Secondary} onPress={closeModal}/>
+                <Appbar.Content color={colors.Secondary} title={article.category}/>
             </Appbar.Header>
-            <View style={styles.container}>
-                <View style={styles.text}>
-                    <Text style={styles.heading}>{article.heading}</Text>
-                    <Text>{article.description}</Text>
-                    <Text>{article.content}</Text>
-                </View>
-            </View>
+                <ImageBackground source={require('../../assets/Backgrounds/purple-texture.jpg')} resizeMode="cover">
+                    <View style={styles.article}>
+                        <Image style={styles.articleImage} source={require('../../assets/Backgrounds/news.jpg')} />
+                        <View style={styles.articleText}>
+                            <Text style={styles.categoryText}>Category: {article.category}</Text>
+                            <View style={styles.articleTitle}>
+                                <Text style={styles.headingText}>{article.heading}</Text>
+                                <Text style={styles.descriptionText}>{article.description}</Text>
+                            </View>
+                            <Text style={styles.contentText}>{article.content}</Text>
+                        </View>
+                    </View>
+                </ImageBackground>
             <Footer/>
             </ScrollView>
         </Modal>
@@ -65,17 +72,50 @@ const Article = ({articleID, onClose}) => {
 export default Article;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+    article: {
+        margin: 10,
+        backgroundColor: colors.LightBG,
+        borderRadius: 10
     },
     header: {
-        backgroundColor: '#2121e7',
-        color: '#ffffff',
+        backgroundColor: colors.BG,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        borderBottomColor: colors.Secondary,
+        borderBottomWidth: 2
     },
-    text: {
-        padding: 20,
+    categoryText: {
+        color: colors.SecondaryText,
+        fontSize: 15,
+        padding: 10
     },
-    heading: {
+    articleTitle: {
+       backgroundColor: colors.BG,
+        padding: 10
+    },
+    headingText: {
+        color: colors.PrimaryText,
+        fontSize: 17,
         fontWeight: "bold",
-    }
+        marginBottom: 5
+    },
+    descriptionText: {
+        color: colors.PrimaryText,
+        fontSize: 15,
+    },
+    contentText:{
+        color: colors.SecondaryText,
+        fontSize: 15,
+        padding: 10,
+        textAlign: "justify",
+        lineHeight: 22
+    },
+    articleImage: {
+        width: '100%',
+        height: 300,
+        borderRadius: 5,
+        marginBottom: 10,
+        alignSelf: "center",
+    },
 });
