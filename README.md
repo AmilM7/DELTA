@@ -9,7 +9,7 @@ To install and run this project locally, follow these steps:
 `git clone https://github.com/AmilM7/DELTA.git`
 
 - Navigate to the project directory:  
-`cd your-repository`
+`cd DELTA`
 
 - Install the required dependencies:  
 `npm install`
