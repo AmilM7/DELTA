@@ -1,6 +1,7 @@
 # DELTA
 
 ## Description: This is a README file for the Expo React Native application project.
+DELTA is a news application developed for mobile devices using React Native framework. It allows users to browse throughout different sections / categories and see the most recent news from their country. At the top of the page users can see the most popular - trending news, under the trending there is a section with most recent news from user area and below that users are free to browse any category they wish to see and read news from.
 
 ### Installation
 To install and run this project locally, follow these steps:
