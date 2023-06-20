@@ -6,7 +6,7 @@
 To install and run this project locally, follow these steps:
 
 - Clone the repository to your local machine using the following command:   
-`git clone https://github.com/your-username/your-repository.git`
+`git clone https://github.com/AmilM7/DELTA.git`
 
 - Navigate to the project directory:  
 `cd your-repository`
